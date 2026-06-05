@@ -1,8 +1,12 @@
+import dotenv from "dotenv";
+dotenv.config();
 import { WebSocket, WebSocketServer } from "ws";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { JWT_SECRET } from "@repo/backend-common/config";
 import { createRemoteJWKSet, jwtVerify } from "jose";
-const wss = new WebSocketServer({ host: "0.0.0.0", port: 8080 });
+
+const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3002;
+const wss = new WebSocketServer({ host: "0.0.0.0", port: PORT });
 
 // Standardize what a payload looks like to clients
 interface MessagePayload {

@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import roomRouter from "./routes/room.route";
 import cors from "cors";
@@ -7,6 +9,8 @@ app.use(cors());
 app.use(express.json());
 app.use("/room", roomRouter);
 
-app.listen(8000, () => {
-  console.log("http server is running at http://localhost:8000");
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`http server is running at http://localhost:${PORT}`);
 });
