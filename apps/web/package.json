@@ -4,25 +4,40 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000",
+    "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --max-warnings 0",
-    "check-types": "next typegen && tsc --noEmit"
+    "lint": "next lint --max-warnings 0",
+    "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@dgmjs/core": "^1.5.5",
+    "@dgmjs/export": "^1.1.0",
+    "@dgmjs/react": "^1.5.2",
+    "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
-    "next": "16.2.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "@tailwindcss/postcss": "^4.3.0",
+    "@tanstack/react-query": "^5.100.14",
+    "axios": "^1.16.1",
+    "better-auth": "^1.6.11",
+    "lucide-react": "^1.14.0",
+    "next": "^15.3.0",
+    "next-themes": "^0.4.6",
+    "postcss": "^8.5.14",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hot-toast": "^2.6.0",
+    "tailwindcss": "^4.3.0",
+    "ws": "^8.20.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "19.2.2",
-    "eslint": "^9.39.1",
-    "typescript": "5.9.2"
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.1",
+    "@types/ws": "^8.18.1",
+    "eslint": "^9.30.0",
+    "typescript": "5.8.2"
   }
 }
