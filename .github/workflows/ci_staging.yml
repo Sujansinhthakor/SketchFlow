@@ -21,4 +21,6 @@ jobs:
           username: ec2-user
           key: ${{ secrets.PRIVATE_SSH_KEY }}
           port: 22
-          script: ./deploy.sh
+          script: |
+            cd ~/SketchFlow
+            ./deploy.sh
