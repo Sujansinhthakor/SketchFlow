@@ -32,7 +32,6 @@ wss.on("connection", async function connection(ws, request) {
   try {
     const queryParams = new URLSearchParams(url.split("?")[1]);
     const token = queryParams.get("token") || "";
-    console.log(token);
     const { payload } = await jwtVerify(token, JWKS);
     // optional extra check
     if (!payload.sub) {

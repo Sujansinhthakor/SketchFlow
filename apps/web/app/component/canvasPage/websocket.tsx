@@ -70,7 +70,7 @@ const useWebSocket = (
             }
           }
 
-          // CRITICAL FIX 1: Initialize lastSentData to the normalized JSON immediately.
+          // Initialize lastSentData to the normalized JSON immediately.
           // This prevents the new user's initial local repaint from broadcasting an empty canvas.
           lastSentData.current = JSON.stringify(fullDocData);
 
@@ -116,7 +116,7 @@ const useWebSocket = (
         // Load the new page state
         editor.loadFromJSON(data.pageData);
 
-        // CRITICAL FIX 2: Update lastSentData after receiving remote changes
+        // Update lastSentData after receiving remote changes
         // This prevents the next local repaint from echoing the remote state back to the room.
         const updatedDocData = editor.saveToJSON();
         if (updatedDocData && updatedDocData.children) {
@@ -132,6 +132,24 @@ const useWebSocket = (
           isApplyingRemoteChange.current = false;
         }, 50);
       }
+    };
+
+    ws.onclose = (event) => {
+      console.log("WebSocket closed:", event.code, event.reason);
+      setIsWsConnected(false);
+      setIsConnecting(false);
+
+      if (event.code === 4003) {
+        toast.error("Authentication failed. Please login again.");
+      } else if (!event.wasClean) {
+        toast.error("WebSocket connection failed.");
+      }
+    };
+
+    ws.onerror = (error) => {
+      console.error("WebSocket error:", error);
+      setIsWsConnected(false);
+      setIsConnecting(false);
     };
 
     // 2. Listen for LOCAL canvas repaints
