@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { ArrowRight, Hash, Copy, Check, X, Users } from "lucide-react";
+import { Hash, Copy, Check, X, Users } from "lucide-react";
 import { useParams } from "next/navigation";
 import { Editor } from "@dgmjs/core";
 import api from "../../../../api";

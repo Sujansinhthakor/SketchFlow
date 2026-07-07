@@ -1,5 +1,5 @@
 import type { ShapeProps } from "@dgmjs/core";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 /* ───────────────────── data ───────────────────── */
 

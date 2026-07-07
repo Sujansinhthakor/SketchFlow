@@ -1,5 +1,5 @@
 import type { Editor } from "@dgmjs/core";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import {
   CircleIcon,
   Eraser,

@@ -9,7 +9,6 @@ import {
   ArrowRight,
   Sun,
   Moon,
-  Sparkles,
 } from "lucide-react";
 import SketchyCanvas from "./SketchCanvasBg";
 import FeatureCard from "./FeatureCard";

@@ -1,7 +1,7 @@
 "use client";
 import { Editor, FillStyle, Shape, Text, type ShapeProps } from "@dgmjs/core";
 import { DGMEditor } from "@dgmjs/react";
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Toolbar } from "./canvasComponent/toolbar";
 import { Palette } from "./canvasComponent/palette";
@@ -9,7 +9,7 @@ import HeaderActions from "./canvasComponent/HeaderActions";
 import useWebSocket from "./websocket";
 import { authClient } from "../../lib/auth-client";
 import api from "../../../api";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import ConnectingOverlay from "./canvasComponent/connectingOverlay";
 
 declare global {

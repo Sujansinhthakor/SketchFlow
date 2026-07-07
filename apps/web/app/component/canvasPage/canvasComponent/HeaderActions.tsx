@@ -1,12 +1,5 @@
-import { Canvas, Editor } from "@dgmjs/core";
-import {
-  CircleUserRound,
-  Download,
-  House,
-  Moon,
-  Share2,
-  Sun,
-} from "lucide-react";
+import { Editor } from "@dgmjs/core";
+import { Download, House, Moon, Share2, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import RoomModal from "./RoomModal";
