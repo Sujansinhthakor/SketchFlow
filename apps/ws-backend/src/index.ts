@@ -1,8 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
 import { WebSocket, WebSocketServer } from "ws";
-import jwt, { JwtPayload } from "jsonwebtoken";
-import { JWT_SECRET } from "@repo/backend-common/config";
 import { createRemoteJWKSet, jwtVerify } from "jose";
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3002;
@@ -17,8 +15,9 @@ interface MessagePayload {
 
 const rooms = new Map<string, Set<WebSocket>>();
 const roomStates = new Map<string, string>();
-const JWKS = createRemoteJWKSet(new URL("http://localhost:3000/api/auth/jwks"));
-
+const JWKS = createRemoteJWKSet(
+  new URL(`${process.env.AUTH_URL}/api/auth/jwks`),
+);
 wss.on("connection", async function connection(ws, request) {
   ws.on("error", console.error);
 

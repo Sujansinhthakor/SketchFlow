@@ -9,8 +9,9 @@ declare global {
   }
 }
 
-const JWKS = createRemoteJWKSet(new URL("http://localhost:3000/api/auth/jwks"));
-
+const JWKS = createRemoteJWKSet(
+  new URL(`${process.env.AUTH_URL}/api/auth/jwks`),
+);
 const authMiddleware = async (
   req: Request,
   res: Response,
